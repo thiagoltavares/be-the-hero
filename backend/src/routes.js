@@ -1,22 +1,42 @@
 import { Router } from "express";
+import { celebrate, Segments, Joi } from "celebrate";
 
 import OngController from "./controller/OngController";
 import IncidentController from "./controller/IncidentController";
 import ProfileController from "./controller/ProfileController";
 import SessionController from "./controller/SessionController";
 
+import IncidentValidation from "./validations/IncidentValidation";
+import ProfileValidation from "./validations/ProfileValidation";
+import OngValidation from "./validations/OngValidation";
 
 const routes = Router();
 
-routes.post('/sessions', SessionController.store)
+/**
+ * Sessions Routes
+ */
+routes.post("/sessions", SessionController.store);
 
-routes.get('/ongs', OngController.index);
-routes.post('/ongs', OngController.store);
+/**
+ * Ongs Routes
+ */
+routes.get("/ongs", OngController.index);
+routes.post("/ongs", OngValidation.post, OngController.store);
 
-routes.get('/profile', ProfileController.index);
+/**
+ * Profile Routes
+ */
+routes.get("/profile", ProfileValidation.index, ProfileController.index);
 
-routes.get('/incidents', IncidentController.index);
-routes.post('/incidents', IncidentController.store);
-routes.delete('/incidents/:id', IncidentController.delete);
+/**
+ * Incidents Routes
+ */
+routes.get("/incidents", IncidentValidation.index, IncidentController.index);
+routes.post("/incidents", IncidentValidation.store, IncidentController.store);
+routes.delete(
+  "/incidents/:id",
+  IncidentValidation.delete,
+  IncidentController.delete
+);
 
 export default routes;
