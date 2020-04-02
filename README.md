@@ -17,5 +17,5 @@ Technologies:
 ![](images/1.png)
 ![](images/2.png)
 ![](images/3.png)
-![](images/4.png =248x)
-![](images/5.png =248x)
+![image|248x540](images/4.png)
+![image|248x540](images/5.png)
