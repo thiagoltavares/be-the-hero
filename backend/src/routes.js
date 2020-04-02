@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { celebrate, Segments, Joi } from "celebrate";
 
 import OngController from "./controller/OngController";
 import IncidentController from "./controller/IncidentController";

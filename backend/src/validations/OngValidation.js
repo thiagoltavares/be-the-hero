@@ -7,11 +7,12 @@ export default {
       email: Joi.string()
         .required()
         .email(),
-      whatsapp: Joi.number().required(),
-      city: Joi.string().required(),
-      uf: Joi.string()
+      whatsapp: Joi.string()
         .required()
-        .length()
+        .min(9)
+        .max(12),
+      city: Joi.string().required(),
+      uf: Joi.string().required()
     })
   })
 };
