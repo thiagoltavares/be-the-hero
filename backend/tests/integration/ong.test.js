@@ -22,11 +22,11 @@ describe("ONG", () => {
       .post("/ongs")
       //.set('Authorization', 'put some ong valid id') To pass Headers eg: profile route
       .send({
-        name: "Mitonaro2",
-        email: "mito@gmail.com",
+        name: "Red Cross",
+        email: "rd@gmail.com",
         whatsapp: "124568925",
-        city: "Brasilia",
-        uf: "DF"
+        city: "Porto",
+        uf: "PT"
       });
 
     expect(response.body).toHaveProperty("id");
